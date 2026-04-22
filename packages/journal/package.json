@@ -1,0 +1,40 @@
+{
+	"name": "@clementtisseau/pi-journal",
+	"version": "0.65.2",
+	"description": "Repo-local journaling for Pi coding agent activity",
+	"type": "module",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": ["dist", "README.md", "CHANGELOG.md"],
+	"pi": {
+		"extensions": ["./dist/capture/extension.js"]
+	},
+	"scripts": {
+		"clean": "shx rm -rf dist",
+		"build": "tsgo -p tsconfig.build.json",
+		"dev": "tsgo -p tsconfig.build.json --watch --preserveWatchOutput",
+		"test": "vitest --run",
+		"prepublishOnly": "npm run clean && npm run build"
+	},
+	"dependencies": {
+		"@mariozechner/pi-coding-agent": "^0.65.2",
+		"@mariozechner/pi-tui": "^0.65.2"
+	},
+	"devDependencies": {
+		"@types/node": "^24.3.0",
+		"shx": "^0.4.0",
+		"typescript": "^5.7.3",
+		"vitest": "^3.2.4"
+	},
+	"keywords": ["pi", "journal", "coding-agent", "repo-history"],
+	"author": "Clément Tisseau",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/badlogic/pi-mono.git",
+		"directory": "packages/journal"
+	},
+	"engines": {
+		"node": ">=22.0.0"
+	}
+}
